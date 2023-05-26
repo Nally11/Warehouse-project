@@ -26,3 +26,44 @@ from data import warehouse1, warehouse2
 # Else
 
 # Thank the user for the visit
+
+#user_name = input("Welcome to warehouse.com, what is your name?")
+
+#print("Hello", user_name)
+
+user_input = input("1. List items by warehouse`, `2. Search an item and place an order` and `3. Quit`")
+#11111111111111
+
+from collections import Counter
+
+count1 = Counter(warehouse1)
+count2 = Counter(warehouse2)
+count_sum = (warehouse1 + warehouse2)
+count3 = Counter(count_sum)
+
+if "1" in user_input:
+    print("in Warehouse 1 available:",count1)
+    print("-----")
+    print("in Warehouse 2 available:",count2)
+    
+
+elif "2" in user_input:
+    find_item = input(str("enter item"))
+    print("Total stock is:",count3[find_item],find_item)
+    total_stock = count3[find_item]
+    print(type(total_stock))
+    print("Warehouse 1 has:",count1[find_item],find_item)
+    print("Warehouse 2 has:",count2[find_item],find_item)
+    order_query = input("would you like to place an order? y/n")
+    if "n" in order_query:
+        print("thank you for visiting", user_input)
+    elif "y" in order_query:
+        buy = int(input("how many would you like to buy?"))  
+    if buy <= total_stock:
+        print("The order of", buy, find_item, "has been placed")
+    elif buy > total_stock:
+        total_query = input("Sorry we do not have that much stock, would you like to order the maximum? y/n")
+    if "n" in total_query:
+        print("thank you for visiting", user_input)
+    elif "y" in total_query:
+        print("The order of", total_stock, find_item, "has been placed")
