@@ -1,4 +1,4 @@
-"""Command line interface to query the stock.
+"""Command line interface to query the stock..
 
 To iterate the source data you can use the following structure:
 
